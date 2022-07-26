@@ -1,0 +1,26 @@
+﻿<Window x:Class="Sistema.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="501">
+    <Grid>
+        <ListView HorizontalAlignment="Left" Height="334" Margin="161,34,0,0" VerticalAlignment="Top" Width="271" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding listaAlunos}" SelectedItem="{Binding AlunoSelecionado}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding NomeCompleto}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Serie}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding CodAluno}"/>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Adicionar" Command="{Binding Add}"  HorizontalAlignment="Left" Height="37" Margin="26,47,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button Content="Remover" Command="{Binding Remove}" HorizontalAlignment="Left" Height="42" Margin="26,109,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button Content="Alterar" Command="{Binding Alterar}" HorizontalAlignment="Left" Height="40" Margin="26,176,0,0" VerticalAlignment="Top" Width="98"/>
+
+    </Grid>
+</Window>
