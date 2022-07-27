@@ -74,8 +74,12 @@ namespace Sistema
                     tela.DataContext = userAluno;
                     if (tela.ShowDialog() ?? false)
                     {
-                        listaAlunos.Remove(AlunoSelecionado);
-                        listaAlunos.Add(userAluno);
+                        /*listaAlunos.Remove(AlunoSelecionado);
+                        listaAlunos.Add(userAluno);*/
+
+                        AlunoSelecionado.NomeCompleto = userAluno.NomeCompleto;
+                        AlunoSelecionado.CodAluno = userAluno.CodAluno;
+                        AlunoSelecionado.Serie = userAluno.Serie;
                     }
                 }
             }, (object _) => {

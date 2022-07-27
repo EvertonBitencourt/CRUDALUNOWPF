@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Sistema
 {
-    public class Aluno
+    public class Aluno : INotifyPropertyChanged
     {
+        
         private string nomeCompleto;
         private int codAluno;
         private Ano serie;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void Notiica (string propertyName)
+        {
+            PropertyChanged?.Invoke (this, new PropertyChangedEventArgs (propertyName));
+        }
+
 
         public Aluno()
         {
@@ -27,19 +37,28 @@ namespace Sistema
         public string NomeCompleto
         {
             get { return nomeCompleto; }
-            set { nomeCompleto = value; }
+            set { 
+                nomeCompleto = value; 
+                Notiica ("nomeCompleto");
+            }
         }
 
         public int CodAluno
         { 
             get { return codAluno; }
-            set { codAluno = value; }
+            set { 
+                codAluno = value;
+                Notiica("CodAluno");
+            }
         }
 
         public Ano Serie
         {
             get { return serie; }
-            set { serie = value; }
+            set { 
+                serie = value;
+                Notiica("Serie");
+            }
         }
     }
 
@@ -57,4 +76,5 @@ namespace Sistema
         SegundoAnoMedio = 10,
         TerceiroAnoMedio = 11
     }
+
 }
