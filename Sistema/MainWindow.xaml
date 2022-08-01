@@ -10,9 +10,9 @@
         <ListView HorizontalAlignment="Left" Height="334" Margin="161,34,0,0" VerticalAlignment="Top" Width="271" d:ItemsSource="{d:SampleData ItemCount=5}" ItemsSource="{Binding listaAlunos}" SelectedItem="{Binding AlunoSelecionado}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding NomeCompleto}"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Serie}"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding CodAluno}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding nomecompleto}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding serie}"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding codaluno}"/>
 
 
                 </GridView>

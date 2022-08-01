@@ -1,24 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Sistema
 {
+    [Table("aluno", Schema = "public")]
     public class Aluno : INotifyPropertyChanged
     {
-        
+
         private string nomeCompleto;
+
         private int codAluno;
-        private Ano serie;
+        private Ano laserie;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void Notiica (string propertyName)
+        protected virtual void Notifica(string propertyName)
         {
-            PropertyChanged?.Invoke (this, new PropertyChangedEventArgs (propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
 
@@ -30,34 +34,34 @@ namespace Sistema
         {
             this.nomeCompleto = nomeCompleto;
             this.codAluno = codAluno;
-            this.serie = serie;
+            this.laserie = serie;
         }
 
         //O que falta aqui?
-        public string NomeCompleto
+        public string nomecompleto
         {
             get { return nomeCompleto; }
-            set { 
-                nomeCompleto = value; 
-                Notiica ("nomeCompleto");
+            set {
+                nomeCompleto = value;
+                Notifica("nomeCompleto");
             }
         }
-
-        public int CodAluno
-        { 
-            get { return codAluno; }
-            set { 
-                codAluno = value;
-                Notiica("CodAluno");
-            }
-        }
-
-        public Ano Serie
+        [Key]
+        public int codaluno
         {
-            get { return serie; }
-            set { 
-                serie = value;
-                Notiica("Serie");
+            get { return codAluno; }
+            set {
+                codAluno = value;
+                Notifica("CodAluno");
+            }
+        }
+
+        public Ano serie
+        {
+            get { return laserie; }
+            set {
+                laserie = value;
+                Notifica("Serie");
             }
         }
     }

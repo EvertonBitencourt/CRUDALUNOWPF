@@ -24,45 +24,48 @@ namespace Sistema
         public MessageBox mensagem { get; set; }
         public MainWindowsVM()
         {
-            listaAlunos = new ObservableCollection<Aluno>()
-            {
-                new Aluno()
-                {
-                    NomeCompleto = "Everton Bitencourt",
-                    CodAluno = 1111,
-                    Serie = (Ano) 1
-                }
-            };
+            listaAlunos = new ObservableCollection<Aluno>();
+            
             IniciaComandos();
         }
 
         public void IniciaComandos()
         {
-            
+            AlunosContext db = new AlunosContext();
+
+            foreach (Aluno aluno in db.Alunos.ToList())
+            {
+                listaAlunos.Add(aluno);
+            }
+
             Add = new RelayCommand( (object _) => {
-                /*listaAlunos.Add(new Aluno(nomeCompleto, codigo, (Ano)serie));
-                nomeCompleto ="";*/
+                
 
 
                 Aluno userAluno = new Aluno();
 
                 CadastroAluno tela = new CadastroAluno();
                 tela.DataContext = userAluno;
-                if (tela.ShowDialog() ?? false) { 
-                    if (userAluno.Serie >(Ano)11 || userAluno.Serie <(Ano)1 || userAluno.NomeCompleto == null ||  userAluno.CodAluno == 0)
+                if (tela.ShowDialog() ?? false) {
+                    Console.WriteLine(userAluno.nomecompleto);
+                    Console.WriteLine(userAluno.serie);
+                    if (userAluno.serie >(Ano)11 || userAluno.serie <(Ano)1 || userAluno.nomecompleto == null ||  userAluno.codaluno == 0)
                     {
                         MessageBox.Show("Dados Inválidos");
      
                     }
                     else { 
                     listaAlunos.Add(userAluno);
+                    db.Alunos.Add(userAluno);
+                        db.SaveChanges();
                     }
                 }
             });
             Remove = new RelayCommand((object _) =>
             {
-
+                db.Alunos.Remove(AlunoSelecionado);
                 listaAlunos.Remove(AlunoSelecionado);
+                db.SaveChanges();
             }, (object _) => {
                 return listaAlunos.Count>0;
             });
@@ -70,23 +73,21 @@ namespace Sistema
             {
                 if (AlunoSelecionado != null)
                 {
-                    Aluno userAluno = new Aluno(AlunoSelecionado.NomeCompleto, AlunoSelecionado.CodAluno, AlunoSelecionado.Serie);
+                    Aluno userAluno = new Aluno(AlunoSelecionado.nomecompleto, AlunoSelecionado.codaluno, AlunoSelecionado.serie);
                     CadastroAluno tela = new CadastroAluno();
                     tela.DataContext = userAluno;
                     if (tela.ShowDialog() ?? false)
                     {
-                        /*listaAlunos.Remove(AlunoSelecionado);
-                        listaAlunos.Add(userAluno);*/
-
-                        if (userAluno.Serie > (Ano)11 || userAluno.Serie < (Ano)1 || userAluno.NomeCompleto == null || userAluno.NomeCompleto == "" || userAluno.CodAluno == 0)
+                        if (userAluno.serie > (Ano)11 || userAluno.serie < (Ano)1 || userAluno.nomecompleto == null || userAluno.nomecompleto == "" || userAluno.codaluno == 0)
                         {
                             MessageBox.Show("Dados Inválidos");
-
                         }
                         else { 
-                            AlunoSelecionado.NomeCompleto = userAluno.NomeCompleto;
-                            AlunoSelecionado.CodAluno = userAluno.CodAluno;
-                            AlunoSelecionado.Serie = userAluno.Serie;
+                            AlunoSelecionado.nomecompleto = userAluno.nomecompleto;
+                            AlunoSelecionado.codaluno = userAluno.codaluno;
+                            AlunoSelecionado.serie = userAluno.serie;
+                            db.Alunos.SqlQuery("update aluno set nomecompleto, serie where codaluno", userAluno);
+                            db.SaveChanges();
                          }
                     }
                 }
