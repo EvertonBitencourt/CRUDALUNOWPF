@@ -1,19 +1,28 @@
-﻿<Window x:Class="Sistema.CadastroAluno"
+﻿<Window x:Class="Sistema.AlterarAluno"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sistema"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="CadastroAluno" Height="450" Width="368">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="dataEnum" MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:Ano"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <Grid Margin="0,0,30,0">
         <TextBox HorizontalAlignment="Left" Height="26" Margin="165,104,0,0" TextWrapping="Wrap" Text="{Binding nomecompleto}" VerticalAlignment="Top" Width="133"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="165,154,0,0" TextWrapping="Wrap" Text="{Binding serie}" VerticalAlignment="Top" Width="133"/>
         <TextBox HorizontalAlignment="Left" Height="22" Margin="165,204,0,0" TextWrapping="Wrap" Text="{Binding codaluno}" VerticalAlignment="Top" Width="133"/>
         <Button Content="Salvar" HorizontalAlignment="Left" Margin="81,250,0,0" VerticalAlignment="Top" Click="btn_Salvar"/>
         <Label Content="Nome Completo" HorizontalAlignment="Left" Margin="54,96,0,0" VerticalAlignment="Top"/>
         <Label Content="Serie" HorizontalAlignment="Left" Height="31" Margin="54,146,0,0" VerticalAlignment="Top" Width="98"/>
         <Label Content="Codigo" HorizontalAlignment="Left" Height="25" Margin="56,192,0,0" VerticalAlignment="Top" Width="86"/>
+        <ComboBox Name="ComboAnoSerie" ItemsSource="{Binding Source={StaticResource dataEnum}}" SelectedItem="{Binding serie}" HorizontalAlignment="Left" Height="20" Margin="165,157,0,0" VerticalAlignment="Top" Width="133"/>
 
     </Grid>
 </Window>
+

@@ -9,8 +9,10 @@ using System.Windows.Input;
 
 namespace Sistema
 {
+    
     public class MainWindowsVM
-    { 
+    {
+        public   string itemAno;
         public ObservableCollection<Aluno> listaAlunos { get; set; }
         public string nomeCompleto { get; set; }
         public int index { get; set; }
@@ -21,38 +23,45 @@ namespace Sistema
         public ICommand Alterar { get; private set; }
         public Aluno AlunoSelecionado { get; set; }
 
+        public string ItemAno
+        {
+            get => itemAno;
+            set
+            {
+                itemAno = value;
+                Console.WriteLine(itemAno);
+            }
+        } 
+
         public MessageBox mensagem { get; set; }
         public MainWindowsVM()
         {
             listaAlunos = new ObservableCollection<Aluno>();
-            
             IniciaComandos();
         }
-
         public void IniciaComandos()
         {
             AlunosContext db = new AlunosContext();
-
+            OtherAlunosContext odb = new OtherAlunosContext();
             foreach (Aluno aluno in db.Alunos.ToList())
             {
                 listaAlunos.Add(aluno);
             }
+            /*foreach (Aluno aluno in odb.Alunos.ToList())
+            {
+                listaAlunos.Add(aluno);
+            }*/
 
             Add = new RelayCommand( (object _) => {
-                
-
-
                 Aluno userAluno = new Aluno();
-
-                CadastroAluno tela = new CadastroAluno();
+                GerenciarAluno tela = new GerenciarAluno();
                 tela.DataContext = userAluno;
                 if (tela.ShowDialog() ?? false) {
                     Console.WriteLine(userAluno.nomecompleto);
                     Console.WriteLine(userAluno.serie);
-                    if (userAluno.serie >(Ano)11 || userAluno.serie <(Ano)1 || userAluno.nomecompleto == null ||  userAluno.codaluno == 0)
+                    if (userAluno.serie >(Ano)11 || userAluno.serie <(Ano)1 || userAluno.nomecompleto == null)
                     {
                         MessageBox.Show("Dados Inválidos");
-     
                     }
                     else { 
                     listaAlunos.Add(userAluno);
@@ -74,7 +83,7 @@ namespace Sistema
                 if (AlunoSelecionado != null)
                 {
                     Aluno userAluno = new Aluno(AlunoSelecionado.nomecompleto, AlunoSelecionado.codaluno, AlunoSelecionado.serie);
-                    CadastroAluno tela = new CadastroAluno();
+                    GerenciarAluno tela = new GerenciarAluno();
                     tela.DataContext = userAluno;
                     if (tela.ShowDialog() ?? false)
                     {

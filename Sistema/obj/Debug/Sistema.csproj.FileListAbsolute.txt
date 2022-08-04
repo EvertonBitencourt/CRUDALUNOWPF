@@ -48,12 +48,10 @@ C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\bin\Debug\System.Thread
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\bin\Debug\System.ValueTuple.xml
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.csproj.AssemblyReference.cache
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.csproj.SuggestedBindingRedirects.cache
-C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\CadastroAluno.g.cs
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\MainWindow.g.cs
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\App.g.cs
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema_MarkupCompile.cache
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema_MarkupCompile.lref
-C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\CadastroAluno.baml
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\MainWindow.baml
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.g.resources
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.Properties.Resources.resources
@@ -62,3 +60,10 @@ C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.cspro
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.csproj.CopyComplete
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.exe
 C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.pdb
+C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\bin\Debug\MySqlConnector.dll
+C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\bin\Debug\MySqlConnector.xml
+C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\Sistema.exe.config
+C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\GerenciarAluno.g.cs
+C:\Users\EVERT\source\repos\Sistema\CRUDALUNOWPF\Sistema\obj\Debug\GerenciarAluno.baml
